@@ -1,3 +1,5 @@
+English| [简体中文](./README_cn.md)
+
 # Tracker
 
 ## Supported Trackers
@@ -48,32 +50,33 @@ while True:
     ret, frame = cap.read()
     if not ret:
         break
-    results = model.track(frame, persist=True)
-    boxes = results[0].boxes.xyxy.cpu().numpy().astype(int)
-    ids = results[0].boxes.id.cpu().numpy().astype(int)
-    for box, id in zip(boxes, ids):
-        cv2.rectangle(frame, (box[0], box[1]), (box[2], box[3]), (0, 255, 0), 2)
-        cv2.putText(
-            frame,
-            f"Id {id}",
-            (box[0], box[1]),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            1,
-            (0, 0, 255),
-            2,
-        )
-    cv2.imshow("frame", frame)
-    if cv2.waitKey(1) & 0xFF == ord("q"):
-        break
+``````python
+results = model.track(frame, persist=True)
+boxes = results[0].boxes.xyxy.cpu().numpy().astype(int)
+ids = results[0].boxes.id.cpu().numpy().astype(int)
+for box, id in zip(boxes, ids):
+    cv2.rectangle(frame, (box[0], box[1]), (box[2], box[3]), (0, 255, 0), 2)
+    cv2.putText(
+        frame,
+        f"Id {id}",
+        (box[0], box[1]),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        1,
+        (0, 0, 255),
+        2,
+    )
+cv2.imshow("frame", frame)
+if cv2.waitKey(1) & 0xFF == ord("q"):
+    break
 ```
 
-## Change tracker parameters
+## 更改跟踪器参数
 
-You can change the tracker parameters by editing the `tracker.yaml` file which is located in the ultralytics/cfg/trackers folder.
+您可以通过编辑位于 ultralytics/cfg/trackers 文件夹中的 `tracker.yaml` 文件来更改跟踪器参数。
 
-## Command Line Interface (CLI)
+## 命令行界面 (CLI)
 
-You can also use the command line interface to track objects using the YOLO model.
+您也可以使用命令行界面来使用 YOLO 模型跟踪物体。
 
 ```bash
 yolo detect track source=... tracker=...
@@ -81,14 +84,15 @@ yolo segment track source=... tracker=...
 yolo pose track source=... tracker=...
 ```
 
-By default, trackers will use the configuration in `ultralytics/cfg/trackers`. We also support using a modified tracker config file. Please refer to the tracker config files in `ultralytics/cfg/trackers`.
+默认情况下，跟踪器将使用 `ultralytics/cfg/trackers` 中的配置。我们还支持使用修改后的跟踪器配置文件。请参阅 `ultralytics/cfg/trackers` 中的跟踪器配置文件。
 
-## Contribute to Our Trackers Section
+## 贡献到我们的跟踪器部分
 
-Are you proficient in multi-object tracking and have successfully implemented or adapted a tracking algorithm with Ultralytics YOLO? We invite you to contribute to our Trackers section! Your real-world applications and solutions could be invaluable for users working on tracking tasks.
+您是否精通多目标跟踪，并成功地使用 Ultralytics YOLO 实现或调整了跟踪算法？我们邀请您为我们的跟踪器部分做出贡献！您在实际应用和解决方案方面的经验对正在处理跟踪任务的用户可能非常宝贵。
 
-By contributing to this section, you help expand the scope of tracking solutions available within the Ultralytics YOLO framework, adding another layer of functionality and utility for the community.
+通过为该部分做出贡献，您可以帮助扩大 Ultralytics YOLO 框架中可用的跟踪解决方案范围，为社区增加另一层功能和实用性。
 
-To initiate your contribution, please refer to our [Contributing Guide](https://docs.ultralytics.com/help/contributing) for comprehensive instructions on submitting a Pull Request (PR) 🛠️. We are excited to see what you bring to the table!
+要开始您的贡献，请参阅我们的[贡献指南](https://docs.ultralytics.com/help/contributing)，详细说明如何提交拉取请求 (PR) 🛠️。我们很期待您能带来什么新的想法！
 
-Together, let's enhance the tracking capabilities of the Ultralytics YOLO ecosystem 🙏!
+让我们一起增强 Ultralytics YOLO 生态系统的跟踪能力 🙏！
+```

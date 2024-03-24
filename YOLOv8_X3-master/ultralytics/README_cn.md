@@ -1,4 +1,4 @@
-English| [简体中文](./README_cn.md)
+[English](./README.md) | 简体中文
 
 <div align="center">
   <p>
@@ -49,7 +49,8 @@ To request an Enterprise License please complete the form at [Ultralytics Licens
     <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-instagram.png" width="2%" alt="" /></a>
   <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
   <a href="https://ultralytics.com/discord" style="text-decoration:none;">
-    <img src="https://github.com/ultralytics/assets/blob/main/social/logo-social-discord.png" width="2%" alt="" /></a></div>
+    <img src="https://github.com/ultralytics/assets/blob/main/social/logo-social-discord.png" width="2%" alt="" /></a>
+</div>
 </div>
 
 ## <div align="center">Documentation</div>
@@ -99,8 +100,8 @@ model = YOLO("yolov8n.pt")  # load a pretrained model (recommended for training)
 model.train(data="coco128.yaml", epochs=3)  # train the model
 metrics = model.val()  # evaluate model performance on the validation set
 results = model("https://ultralytics.com/images/bus.jpg")  # predict on an image
-``````
 path = model.export(format="onnx")  # export the model to ONNX format
+```
 
 [Models](https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/models) download automatically from the latest Ultralytics [release](https://github.com/ultralytics/assets/releases). See YOLOv8 [Python Docs](https://docs.ultralytics.com/usage/python) for more examples.
 
@@ -149,52 +150,59 @@ See [Segmentation Docs](https://docs.ultralytics.com/tasks/segment/) for usage e
   <br>Reproduce by `yolo val segment data=coco.yaml device=0`
 - **Speed** averaged over COCO val images using an [Amazon EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/) instance.
   <br>Reproduce by `yolo val segment data=coco128-seg.yaml batch=1 device=0|cpu`
-```<details><summary>分类</summary>
-
-查看[分类文档](https://docs.ultralytics.com/tasks/classify/)以获取这些模型的使用示例。
-
-| 模型                                                                                        | 尺寸<br><sup>(像素) | 精度<br><sup>Top1 | 精度<br><sup>Top5 | 速度<br><sup>CPU ONNX<br>(毫秒) | 速度<br><sup>A100 TensorRT<br>(毫秒) | 参数量<br><sup>(百万) | FLOPs<br><sup>(十亿) 在640 |
-| -------------------------------------------------------------------------------------------- | ------------------- | ---------------- | ---------------- | ------------------------------ | ---------------------------------- | ----------------- | ------------------------ |
-| [YOLOv8n-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n-cls.pt) | 224                 | 66.6             | 87.0             | 12.9                           | 0.31                               | 2.7               | 4.3                      |
-| [YOLOv8s-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s-cls.pt) | 224                 | 72.3             | 91.1             | 23.4                           | 0.35                               | 6.4               | 13.5                     |
-| [YOLOv8m-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8m-cls.pt) | 224                 | 76.4             | 93.2             | 85.4                           | 0.62                               | 17.0              | 42.7                     |
-| [YOLOv8l-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l-cls.pt) | 224                 | 78.0             | 94.1             | 163.0                          | 0.87                               | 37.5              | 99.7                     |
-| [YOLOv8x-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-cls.pt) | 224                 | 78.4             | 94.3             | 232.0                          | 1.01                               | 57.4              | 154.8                    |
-
-- **acc** 值是模型在[ImageNet](https://www.image-net.org/)数据集验证集上的准确率。
-  <br>通过`yolo val classify data=path/to/ImageNet device=0`进行复现。
-- **Speed** 是使用[Amazon EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/)实例对ImageNet验证图片进行平均计算得到的。
-  <br>通过`yolo val classify data=path/to/ImageNet batch=1 device=0|cpu`进行复现。
 
 </details>
 
-<details><summary>姿势</summary>
+<details><summary>Classification</summary>
 
-查看[姿势文档](https://docs.ultralytics.com/tasks/pose)以获取这些模型的使用示例。
+See [Classification Docs](https://docs.ultralytics.com/tasks/classify/) for usage examples with these models.
 
-| 模型                                                                                                | 尺寸<br><sup>(像素) | mAP<sup>姿势<br>50-95 | mAP<sup>姿势<br>50 | 速度<br><sup>CPU ONNX<br>(毫秒) | 速度<br><sup>A100 TensorRT<br>(毫秒) | 参数量<br><sup>(百万) | FLOPs<br><sup>(十亿) |
-| ---------------------------------------------------------------------------------------------------- | ------------------- | --------------------- | ------------------ | ------------------------------ | ---------------------------------- | ----------------- | ----------------- |
-| [YOLOv8n-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n-pose.pt)       | 640                 | 50.4                  | 80.1               | 131.8                          | 1.18                               | 3.3               | 9.2               |
-| [YOLOv8s-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s-pose.pt)       | 640                 | 60.0                  | 86.2               | 233.2                          | 1.42                               | 11.6              | 30.2              |
-| [YOLOv8m-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8m-pose.pt)       | 640                 | 65.0                  | 88.8               | 456.3                          | 2.00                               | 26.4              | 81.0              |
-| [YOLOv8l-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l-pose.pt)       | 640                 | 67.6                  | 90.0               | 784.5                          | 2.59                               | 44.4              | 168.6             |
-| [YOLOv8x-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-pose.pt)       | 640                 | 69.2                  | 90.2               | 1607.1                         | 3.73                               | 69.4              | 263.2             |
-| [YOLOv8x-pose-p6](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-pose-p6.pt) | 1280                | 71.6                  | 91.2               | 4088.7                         | 10.04                              | 99.1              | 1066.4            |
+| Model                                                                                        | size<br><sup>(pixels) | acc<br><sup>top1 | acc<br><sup>top5 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>A100 TensorRT<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) at 640 |
+| -------------------------------------------------------------------------------------------- | --------------------- | ---------------- | ---------------- | ------------------------------ | ----------------------------------- | ------------------ | ------------------------ |
+| [YOLOv8n-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n-cls.pt) | 224                   | 66.6             | 87.0             | 12.9                           | 0.31                                | 2.7                | 4.3                      |
+| [YOLOv8s-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s-cls.pt) | 224                   | 72.3             | 91.1             | 23.4                           | 0.35                                | 6.4                | 13.5                     |
+| [YOLOv8m-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8m-cls.pt) | 224                   | 76.4             | 93.2             | 85.4                           | 0.62                                | 17.0               | 42.7                     |
+| [YOLOv8l-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l-cls.pt) | 224                   | 78.0             | 94.1             | 163.0                          | 0.87                                | 37.5               | 99.7                     |
+| [YOLOv8x-cls](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-cls.pt) | 224                   | 78.4             | 94.3             | 232.0                          | 1.01                                | 57.4               | 154.8                    |
 
-- **mAP<sup>val</sup>** 值针对[COCO关键点val2017](http://cocodataset.org)数据集上的单模型单比例。
-  <br>通过`yolo val pose data=coco-pose.yaml device=0`进行复现。
-- **Speed** 是使用[Amazon EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/)实例对COCO val图片进行平均计算得到的。
-  <br>通过`yolo val pose data=coco8-pose.yaml batch=1 device=0|cpu`进行复现。
+- **acc** values are model accuracies on the [ImageNet](https://www.image-net.org/) dataset validation set.
+  <br>Reproduce by `yolo val classify data=path/to/ImageNet device=0`
+- **Speed** averaged over ImageNet val images using an [Amazon EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/) instance.
+  <br>Reproduce by `yolo val classify data=path/to/ImageNet batch=1 device=0|cpu`
 
 </details>
 
-## <div align="center">集成</div>
+<details><summary>Pose</summary>
 
-我们与领先的AI平台的关键集成扩展了Ultralytics产品的功能，增强了数据集标注、训练、可视化和模型管理等任务的功能。了解Ultralytics如何与[Roboflow](https://roboflow.com/?ref=ultralytics)、ClearML、[Comet](https://bit.ly/yolov8-readme-comet)、Neural Magic和[OpenVINO](https://docs.ultralytics.com/integrations/openvino)合作，优化您的AI工作流程。
+See [Pose Docs](https://docs.ultralytics.com/tasks/pose) for usage examples with these models.
+
+| Model                                                                                                | size<br><sup>(pixels) | mAP<sup>pose<br>50-95 | mAP<sup>pose<br>50 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>A100 TensorRT<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
+| ---------------------------------------------------------------------------------------------------- | --------------------- | --------------------- | ------------------ | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+| [YOLOv8n-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n-pose.pt)       | 640                   | 50.4                  | 80.1               | 131.8                          | 1.18                                | 3.3                | 9.2               |
+| [YOLOv8s-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s-pose.pt)       | 640                   | 60.0                  | 86.2               | 233.2                          | 1.42                                | 11.6               | 30.2              |
+| [YOLOv8m-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8m-pose.pt)       | 640                   | 65.0                  | 88.8               | 456.3                          | 2.00                                | 26.4               | 81.0              |
+| [YOLOv8l-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l-pose.pt)       | 640                   | 67.6                  | 90.0               | 784.5                          | 2.59                                | 44.4               | 168.6             |
+| [YOLOv8x-pose](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-pose.pt)       | 640                   | 69.2                  | 90.2               | 1607.1                         | 3.73                                | 69.4               | 263.2             |
+| [YOLOv8x-pose-p6](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-pose-p6.pt) | 1280                  | 71.6                  | 91.2               | 4088.7                         | 10.04                               | 99.1               | 1066.4            |
+
+- **mAP<sup>val</sup>** values are for single-model single-scale on [COCO Keypoints val2017](http://cocodataset.org)
+  dataset.
+  <br>Reproduce by `yolo val pose data=coco-pose.yaml device=0`
+- **Speed** averaged over COCO val images using an [Amazon EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/) instance.
+  <br>Reproduce by `yolo val pose data=coco8-pose.yaml batch=1 device=0|cpu`
+
+</details>
+
+## <div align="center">Integrations</div>
+
+Our key integrations with leading AI platforms extend the functionality of Ultralytics' offerings, enhancing tasks like dataset labeling, training, visualization, and model management. Discover how Ultralytics, in collaboration with [Roboflow](https://roboflow.com/?ref=ultralytics), ClearML, [Comet](https://bit.ly/yolov8-readme-comet), Neural Magic and [OpenVINO](https://docs.ultralytics.com/integrations/openvino), can optimize your AI workflow.
 
 <br>
 <a href="https://bit.ly/ultralytics_hub" target="_blank">
-<img width="100%" src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"></a>```html
+<img width="100%" src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"></a>
+<br>
+<br>
+
 <div align="center">
   <a href="https://roboflow.com/?ref=ultralytics">
     <img src="https://github.com/ultralytics/assets/raw/main/partners/logo-roboflow.png" width="10%" /></a>
@@ -209,8 +217,8 @@ See [Segmentation Docs](https://docs.ultralytics.com/tasks/segment/) for usage e
     <img src="https://github.com/ultralytics/assets/raw/main/partners/logo-neuralmagic.png" width="10%" /></a>
 </div>
 
-|                      Roboflow                      |                    ClearML ⭐ NEW                    |                               Comet ⭐ NEW                               |             Neural Magic ⭐ NEW             |
-| :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------------: | :------------------------------------------: |
+|                                                           Roboflow                                                           |                                                            ClearML ⭐ NEW                                                            |                                                                        Comet ⭐ NEW                                                                        |                                           Neural Magic ⭐ NEW                                           |
+| :--------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
 | Label and export your custom datasets directly to YOLOv8 for training with [Roboflow](https://roboflow.com/?ref=ultralytics) | Automatically track, visualize and even remotely train YOLOv8 using [ClearML](https://cutt.ly/yolov5-readme-clearml) (open-source!) | Free forever, [Comet](https://bit.ly/yolov8-readme-comet) lets you save YOLOv8 models, resume training, and interactively visualize and debug predictions | Run YOLOv8 inference up to 6x faster with [Neural Magic DeepSparse](https://bit.ly/yolov5-neuralmagic) |
 
 ## <div align="center">Ultralytics HUB</div>
@@ -242,8 +250,7 @@ For Ultralytics bug reports and feature requests please visit [GitHub Issues](ht
 
 <br>
 <div align="center">
-``````html
-<a href="https://github.com/ultralytics" style="text-decoration:none;">
+  <a href="https://github.com/ultralytics" style="text-decoration:none;">
     <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%" alt="" /></a>
   <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="" />
   <a href="https://www.linkedin.com/company/ultralytics/" style="text-decoration:none;">
@@ -264,4 +271,3 @@ For Ultralytics bug reports and feature requests please visit [GitHub Issues](ht
   <a href="https://ultralytics.com/discord" style="text-decoration:none;">
     <img src="https://github.com/ultralytics/assets/blob/main/social/logo-social-discord.png" width="3%" alt="" /></a>
 </div>
-```

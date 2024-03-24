@@ -1,4 +1,4 @@
-English| [简体中文](./README_cn.md)
+[English](./README.md) | 简体中文
 
 <h1 align="center">YOLOv8 OnnxRuntime C++</h1>
 
@@ -48,7 +48,9 @@ In order to run example, you also need to download coco.yaml. You can download t
 | C++ Standard                     | >=17           |
 | Cmake                            | >=3.5          |
 | Cuda (Optional)                  | >=11.4  \<12.0 |
-| cuDNN (Cuda required)            | =8             |Note: The dependency on C++17 is due to the usage of the C++17 filesystem feature.
+| cuDNN (Cuda required)            | =8             |
+
+Note: The dependency on C++17 is due to the usage of the C++17 filesystem feature.
 
 Note (2): Due to ONNX Runtime, we need to use CUDA 11 and cuDNN 8. Keep in mind that this requirement might change in the future.
 

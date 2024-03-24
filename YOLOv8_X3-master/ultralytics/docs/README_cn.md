@@ -1,4 +1,4 @@
-English| [简体中文](./README_cn.md)
+[English](./README.md) | 简体中文
 
 ---
 description: Learn how to install Ultralytics in developer mode, build and serve it locally for testing, and deploy your documentation site on platforms like GitHub Pages, GitLab Pages, and Amazon S3.
@@ -50,7 +50,7 @@ mkdocs serve
 Here is a breakdown of what this command does:
 
 - `mkdocs`: This is the command-line interface (CLI) for the MkDocs static site generator. It is used to build and serve
-MkDocs sites.
+  MkDocs sites.
 - `serve`: This is a subcommand of the `mkdocs` CLI that tells it to build and serve the documentation site locally.
 - `-a`: This flag specifies the hostname and port number to bind the server to. The default value is `localhost:8000`.
 - `-t`: This flag specifies the theme to use for the documentation site. The default value is `mkdocs`.
