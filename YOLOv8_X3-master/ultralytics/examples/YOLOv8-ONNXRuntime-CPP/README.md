@@ -1,5 +1,3 @@
-English| [简体中文](./README_cn.md)
-
 <h1 align="center">YOLOv8 OnnxRuntime C++</h1>
 
 <p align="center">

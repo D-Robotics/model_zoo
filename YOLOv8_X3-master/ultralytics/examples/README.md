@@ -1,5 +1,3 @@
-English| [简体中文](./README_cn.md)
-
 ## Ultralytics YOLOv8 Example Applications
 
 This repository features a collection of real-world applications and walkthroughs, provided as either Python files or notebooks. Explore the examples below to see how YOLOv8 can be integrated into various applications.

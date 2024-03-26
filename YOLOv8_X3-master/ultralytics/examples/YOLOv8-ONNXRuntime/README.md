@@ -1,5 +1,3 @@
-English| [简体中文](./README_cn.md)
-
 # YOLOv8 - ONNX Runtime
 
 This project implements YOLOv8 using ONNX Runtime.

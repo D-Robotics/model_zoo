@@ -1,5 +1,3 @@
-English| [简体中文](./README_cn.md)
-
 # YOLOv8 - OpenCV
 
 Implementation YOLOv8 on OpenCV using ONNX Format.
